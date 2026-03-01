@@ -34,6 +34,61 @@ export default function SectorPageTemplate({ sector }) {
         </div>
       </section>
 
+      {/* Our Approach */}
+      {sector.approachHeading && (
+        <section className="bg-dark py-22 lg:py-26">
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-18">
+                <div>
+                  <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-5">
+                    Our approach
+                  </p>
+                  <h2 className="font-serif font-normal text-h2 text-white leading-[1.12]">
+                    {sector.approachHeading}
+                  </h2>
+                </div>
+                <div className="flex flex-col justify-end">
+                  {sector.approachText.split('\n\n').map((p, i) => (
+                    <p key={i} className={`font-sans text-body text-white/75 leading-relaxed ${i < sector.approachText.split('\n\n').length - 1 ? 'mb-5' : ''}`}>
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Highlights Grid */}
+            {sector.highlights && (
+              <ScrollReveal>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+                  {sector.highlights.map((h, i) => (
+                    <div key={i} className="border border-white/10 p-8">
+                      <h3 className="font-serif font-semibold text-h4 text-white mb-3">{h.title}</h3>
+                      <p className="font-sans text-body-sm text-white/70 leading-relaxed">{h.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            )}
+
+            {/* Stats Row */}
+            {sector.stats && (
+              <ScrollReveal>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/10">
+                  {sector.stats.map((s, i) => (
+                    <div key={i} className="text-center sm:text-left">
+                      <p className="font-serif text-h2 text-white leading-none mb-2">{s.number}</p>
+                      <p className="font-sans text-body-sm text-white/60">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Expertise List */}
       <section className="bg-off-white py-22 lg:py-26">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
@@ -49,13 +104,13 @@ export default function SectorPageTemplate({ sector }) {
                 <Link href={item.href} className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 py-8 border-b border-light-border last:border-b-0">
                   <div className="placeholder-image aspect-[16/10] rounded-sm" />
                   <div className="flex flex-col justify-center">
-                    <h3 className="font-serif text-h3 text-dark group-hover:text-navy transition-colors leading-snug mb-3">
+                    <h3 className="font-serif font-semibold text-h3 text-dark group-hover:text-navy transition-colors leading-snug mb-3">
                       {item.name}
                     </h3>
                     <p className="font-sans text-body text-body-gray leading-relaxed mb-4">
                       {item.description}
                     </p>
-                    <span className="font-sans text-label font-semibold tracking-nav uppercase text-navy group-hover:opacity-70 transition-opacity">
+                    <span className="font-sans text-body-sm font-semibold tracking-nav uppercase text-navy group-hover:opacity-70 transition-opacity">
                       Learn more →
                     </span>
                   </div>

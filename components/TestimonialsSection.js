@@ -37,7 +37,7 @@ export default function TestimonialsSection({ items = testimonials }) {
             <button
               onClick={prev}
               disabled={currentIndex === 0}
-              className="w-[38px] h-[38px] border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-11 h-11 border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Previous testimonials"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -47,7 +47,7 @@ export default function TestimonialsSection({ items = testimonials }) {
             <button
               onClick={next}
               disabled={currentIndex >= maxIndex}
-              className="w-[38px] h-[38px] border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-11 h-11 border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Next testimonials"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -61,7 +61,7 @@ export default function TestimonialsSection({ items = testimonials }) {
         <div className="hidden md:grid grid-cols-2 gap-12">
           {visibleDesktop.map((t, i) => (
             <div key={currentIndex + i} className="animate-fade-in">
-              <blockquote className="font-sans text-body text-white/70 leading-relaxed mb-8">
+              <blockquote className="font-sans text-body-lg text-white/80 leading-relaxed mb-8">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <div className="flex items-center gap-3">
@@ -70,7 +70,7 @@ export default function TestimonialsSection({ items = testimonials }) {
                 </div>
                 <div>
                   <p className="font-sans text-body-sm font-medium text-white">{t.name}</p>
-                  <p className="font-sans text-body-sm text-white/50">{t.title}</p>
+                  <p className="font-sans text-body-sm text-white/70">{t.title}</p>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function TestimonialsSection({ items = testimonials }) {
         <div className="md:hidden">
           {visibleMobile && (
             <div className="animate-fade-in">
-              <blockquote className="font-sans text-body text-white/70 leading-relaxed mb-8">
+              <blockquote className="font-sans text-body-lg text-white/80 leading-relaxed mb-8">
                 &ldquo;{visibleMobile.quote}&rdquo;
               </blockquote>
               <div className="flex items-center gap-3">
@@ -90,7 +90,7 @@ export default function TestimonialsSection({ items = testimonials }) {
                 </div>
                 <div>
                   <p className="font-sans text-body-sm font-medium text-white">{visibleMobile.name}</p>
-                  <p className="font-sans text-body-sm text-white/50">{visibleMobile.title}</p>
+                  <p className="font-sans text-body-sm text-white/70">{visibleMobile.title}</p>
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function TestimonialsSection({ items = testimonials }) {
             <button
               onClick={mobilePrev}
               disabled={currentIndex === 0}
-              className="w-[38px] h-[38px] border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-11 h-11 border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Previous testimonial"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -111,7 +111,7 @@ export default function TestimonialsSection({ items = testimonials }) {
             <button
               onClick={mobileNext}
               disabled={currentIndex >= mobileMaxIndex}
-              className="w-[38px] h-[38px] border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-11 h-11 border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Next testimonial"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

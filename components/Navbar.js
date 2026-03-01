@@ -219,7 +219,7 @@ export default function Navbar() {
                   <Link
                     key={sector.slug}
                     href={sector.href}
-                    className="font-serif text-2xl text-white hover:opacity-70 transition-opacity"
+                    className="font-serif text-h4 text-white hover:opacity-70 transition-opacity"
                     role="menuitem"
                   >
                     {sector.name}
@@ -246,7 +246,7 @@ export default function Navbar() {
               <div className="grid grid-cols-4 gap-10">
                 {expertiseBySector.map((group) => (
                   <div key={group.slug}>
-                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/40 mb-4">
+                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-4">
                       {group.name}
                     </p>
                     <div className="flex flex-col gap-2.5">
@@ -325,7 +325,7 @@ export default function Navbar() {
               <div className="pl-4 pb-2 flex flex-col gap-2">
                 {expertiseBySector.map((group) => (
                   <div key={group.slug} className="mb-3">
-                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/40 mb-2">
+                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-2">
                       {group.name}
                     </p>
                     {group.items.map((item) => (

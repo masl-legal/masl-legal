@@ -46,6 +46,31 @@ export default function ExpertisePageTemplate({ expertise }) {
         </div>
       </section>
 
+      {/* Key Legislation Callout */}
+      {expertise.keyLegislation && expertise.keyLegislation.length > 0 && (
+        <section className="bg-off-white border-b border-light-border">
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-10">
+            <ScrollReveal>
+              <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 shrink-0">
+                  Key legislation
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {expertise.keyLegislation.map((law, i) => (
+                    <span
+                      key={i}
+                      className="font-sans text-body-sm text-dark bg-white border border-light-border px-4 py-1.5 rounded-sm"
+                    >
+                      {law}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
       {/* Content Sections */}
       {expertise.sections && expertise.sections.map((section, i) => (
         <section key={i} className={`${i % 2 === 0 ? 'bg-off-white' : 'bg-white'} py-18 lg:py-22`}>
@@ -53,7 +78,7 @@ export default function ExpertisePageTemplate({ expertise }) {
             <ScrollReveal>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
                 <div>
-                  <h3 className="font-serif text-h3 text-dark leading-snug mb-4">
+                  <h3 className="font-serif font-semibold text-h3 text-dark leading-snug mb-4">
                     {section.heading}
                   </h3>
                   <p className="font-sans text-body-lg text-dark font-medium leading-relaxed">

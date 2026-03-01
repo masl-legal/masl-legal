@@ -15,7 +15,7 @@ export default function NewsPreview({ articles = newsArticles, limit = 3, showHe
             </h2>
             <Link
               href="/news"
-              className="hidden md:inline-flex font-sans text-label font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity"
+              className="hidden md:inline-flex font-sans text-body-sm font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity"
             >
               Discover more ↗
             </Link>
@@ -28,12 +28,12 @@ export default function NewsPreview({ articles = newsArticles, limit = 3, showHe
             <Link href={`/news/${featured.slug}`} className="group">
               <div className="placeholder-image aspect-[16/10] rounded-sm mb-5" />
               <div className="flex items-center gap-3 mb-3">
-                <span className="font-sans text-[10px] font-semibold uppercase tracking-wide-label bg-navy text-white px-2.5 py-1 rounded-sm">
+                <span className="font-sans text-label-xs font-semibold uppercase tracking-wide-label bg-navy text-white px-2.5 py-1 rounded-sm">
                   {featured.tag}
                 </span>
                 <span className="font-sans text-body-sm text-body-gray">{featured.date}</span>
               </div>
-              <h3 className="font-serif text-h4 text-dark group-hover:text-navy transition-colors leading-snug mb-2">
+              <h3 className="font-serif font-semibold text-h4 text-dark group-hover:text-navy transition-colors leading-snug mb-2">
                 {featured.title}
               </h3>
               <p className="font-sans text-body-sm text-body-gray leading-relaxed line-clamp-3">
@@ -64,7 +64,7 @@ export default function NewsPreview({ articles = newsArticles, limit = 3, showHe
         {showHeader && (
           <Link
             href="/news"
-            className="md:hidden inline-flex font-sans text-label font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity mt-8"
+            className="md:hidden inline-flex font-sans text-body-sm font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity mt-8"
           >
             Discover more ↗
           </Link>

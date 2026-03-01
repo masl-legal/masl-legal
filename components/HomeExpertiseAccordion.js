@@ -33,10 +33,10 @@ export default function HomeExpertiseAccordion() {
             <div key={item.slug} className="border-b border-light-border">
               <button
                 onClick={() => toggle(i)}
-                className="w-full flex items-center justify-between py-5 group text-left"
+                className="w-full flex items-center justify-between py-6 group text-left"
                 aria-expanded={openIndex === i}
               >
-                <span className="font-serif text-[22px] text-dark group-hover:text-navy transition-colors">
+                <span className="font-serif text-accordion text-dark group-hover:text-navy transition-colors">
                   {item.name}
                 </span>
                 <span className={`w-7 h-7 flex items-center justify-center text-body-gray transition-transform duration-300 ${openIndex === i ? 'rotate-45' : ''}`}>
@@ -47,15 +47,30 @@ export default function HomeExpertiseAccordion() {
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-350 ${openIndex === i ? 'max-h-[200px] pb-5' : 'max-h-0'}`}
+                className={`overflow-hidden transition-all duration-350 ${openIndex === i ? 'max-h-[500px] pb-6' : 'max-h-0'}`}
               >
-                <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-8 pr-8">
-                  <p className="font-sans text-body text-body-gray leading-relaxed flex-1">
+                <div className="pr-8">
+                  <p className="font-sans text-body-lg text-body-gray leading-relaxed mb-5">
                     {item.description}
                   </p>
+
+                  {/* Subsection headings */}
+                  {item.sections && item.sections.length > 0 && (
+                    <ul className="mb-5 space-y-2">
+                      {item.sections.map((section, si) => (
+                        <li key={si} className="flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-navy shrink-0" />
+                          <span className="font-sans text-body-sm text-dark font-medium">
+                            {section.heading}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
                   <Link
                     href={item.href}
-                    className="font-sans text-label font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity shrink-0"
+                    className="inline-flex font-sans text-body-sm font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity"
                   >
                     Learn more →
                   </Link>

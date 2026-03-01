@@ -1,6 +1,7 @@
 import HeroBanner from '@/components/HeroBanner';
 import CTABanner from '@/components/CTABanner';
 import ScrollReveal from '@/components/ScrollReveal';
+import { leadership } from '@/lib/data';
 
 export const metadata = {
   title: 'About',
@@ -62,7 +63,7 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <ScrollReveal key={v.title} delay={i < 3 ? i + 1 : 0}>
                 <div className="bg-white p-8 lg:p-10 border border-light-border">
-                  <h3 className="font-serif text-h4 text-dark mb-3">{v.title}</h3>
+                  <h3 className="font-serif font-semibold text-h4 text-dark mb-3">{v.title}</h3>
                   <p className="font-sans text-body text-body-gray leading-relaxed">{v.description}</p>
                 </div>
               </ScrollReveal>
@@ -81,7 +82,7 @@ export default function AboutPage() {
           <ScrollReveal>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               <div>
-                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/40 mb-5">
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-5">
                   Our story
                 </p>
                 <h2 className="font-serif font-normal text-h2 text-white leading-[1.12]">
@@ -89,10 +90,10 @@ export default function AboutPage() {
                 </h2>
               </div>
               <div className="flex flex-col justify-end">
-                <p className="font-sans text-body text-white/65 leading-relaxed mb-5">
+                <p className="font-sans text-body text-white/75 leading-relaxed mb-5">
                   Masl Legal was established by experienced legal professionals who recognised the need for a different kind of law firm — one that combines the rigour and depth of a large practice with the agility, personal attention, and commercial focus of a specialist firm.
                 </p>
-                <p className="font-sans text-body text-white/65 leading-relaxed">
+                <p className="font-sans text-body text-white/75 leading-relaxed">
                   Our founding team brings decades of combined experience across commercial, corporate, international, and regulatory law. This breadth of expertise, combined with our commitment to understanding each client&apos;s unique circumstances, enables us to deliver advice that is both legally excellent and practically effective.
                 </p>
               </div>
@@ -101,13 +102,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Careers */}
+      {/* Leadership */}
       <section className="bg-navy py-22 lg:py-26">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <ScrollReveal>
+            <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-5">
+              Our leadership
+            </p>
+            <h2 className="font-serif font-normal text-h2 text-white leading-[1.12] mb-14">
+              The partners behind Masl Legal
+            </h2>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {leadership.map((person, i) => (
+              <ScrollReveal key={person.name} delay={i + 1}>
+                <div className="border border-white/10 p-8">
+                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mb-6">
+                    <span className="font-serif text-h4 text-white font-semibold">{person.name.charAt(0)}</span>
+                  </div>
+                  <h3 className="font-serif font-semibold text-h4 text-white mb-1">{person.name}</h3>
+                  <p className="font-sans text-body-sm text-white/60 mb-4">{person.role}</p>
+                  <p className="font-sans text-body-sm text-white/75 leading-relaxed mb-5">{person.background}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {person.specialisms.map((s) => (
+                      <span key={s} className="font-sans text-label-xs text-white/80 bg-white/10 px-2.5 py-1 rounded-sm">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                  <blockquote className="font-sans text-body-sm text-white/60 italic leading-relaxed border-l-2 border-white/20 pl-4">
+                    &ldquo;{person.quote}&rdquo;
+                  </blockquote>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Careers */}
+      <section className="bg-dark py-22 lg:py-26">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
           <ScrollReveal>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               <div>
-                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/40 mb-5">
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-5">
                   Careers
                 </p>
                 <h2 className="font-serif font-normal text-h2 text-white leading-[1.12]">

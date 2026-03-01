@@ -33,7 +33,7 @@ export default function HomeIntro() {
         <ScrollReveal delay={3}>
           <Link
             href="/about"
-            className="inline-flex items-center gap-1 font-sans text-label font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity mt-10"
+            className="inline-flex items-center gap-1 font-sans text-body-sm font-semibold tracking-nav uppercase text-navy hover:opacity-70 transition-opacity mt-10"
           >
             Discover the difference ↗
           </Link>

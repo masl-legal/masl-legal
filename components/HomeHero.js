@@ -41,7 +41,7 @@ export default function HomeHero() {
       {/* Headline */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-8 lg:px-16 h-full flex items-end pb-16 lg:pb-20">
         <h1
-          className={`font-serif font-light text-hero text-white leading-[1.08] max-w-4xl transition-all duration-[900ms] cubic-bezier-hero ${
+          className={`font-serif font-normal lg:font-light text-hero text-white leading-[1.08] max-w-4xl transition-all duration-[900ms] cubic-bezier-hero ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
           style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
