@@ -1,0 +1,105 @@
+import HeroBanner from '@/components/HeroBanner';
+import ContactForm from '@/components/ContactForm';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import ScrollReveal from '@/components/ScrollReveal';
+
+export const metadata = {
+  title: 'Contact',
+  description: 'Get in touch with Masl Legal. Our London-based team is ready to discuss your legal needs and provide tailored advice.',
+  openGraph: {
+    title: 'Contact | Masl Legal',
+    description: 'Get in touch with Masl Legal. Our London-based team is ready to discuss your legal needs.',
+  },
+};
+
+export default function ContactPage() {
+  return (
+    <main id="main-content">
+      <HeroBanner title="Contact us" subtitle="We are here to help." />
+
+      {/* Intro */}
+      <section className="bg-white py-22 lg:py-26">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+              <div>
+                <h2 className="font-serif font-normal text-h2 text-dark leading-[1.12]">
+                  Let&apos;s start a<br className="hidden md:block" /> conversation.
+                </h2>
+              </div>
+              <div className="flex flex-col justify-end">
+                <p className="font-sans text-body text-body-gray leading-relaxed">
+                  Whether you have a specific legal question or would like to discuss how we can support your business, our team is ready to help. Contact us using the form below, by email, or by telephone.
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Location & Map */}
+      <section className="bg-off-white py-18 lg:py-22">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              <div>
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
+                  Address
+                </p>
+                <p className="font-sans text-body text-dark leading-relaxed">
+                  Masl Legal<br />
+                  London, United Kingdom
+                </p>
+              </div>
+              <div>
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
+                  Email
+                </p>
+                <a href="mailto:info@masllegal.com" className="font-sans text-body text-navy hover:opacity-70 transition-opacity">
+                  info@masllegal.com
+                </a>
+              </div>
+              <div>
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
+                  Telephone
+                </p>
+                <a href="tel:+442000000000" className="font-sans text-body text-navy hover:opacity-70 transition-opacity">
+                  +44 (0) 20 0000 0000
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Map placeholder */}
+          <ScrollReveal>
+            <div className="placeholder-image aspect-[21/7] rounded-sm mt-12" />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section className="bg-white py-22 lg:py-26">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16">
+              <div>
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-5">
+                  Get in touch
+                </p>
+                <h2 className="font-serif font-normal text-h3 text-dark leading-[1.15]">
+                  Send us a message
+                </h2>
+                <p className="font-sans text-body text-body-gray leading-relaxed mt-4">
+                  Please complete the form and we will respond within one business day.
+                </p>
+              </div>
+              <ContactForm />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <TestimonialsSection />
+    </main>
+  );
+}
