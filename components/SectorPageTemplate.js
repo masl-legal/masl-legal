@@ -90,36 +90,38 @@ export default function SectorPageTemplate({ sector }) {
       )}
 
       {/* Expertise List */}
-      <section className="bg-off-white py-22 lg:py-26">
-        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <ScrollReveal>
-            <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-8">
-              Expertise
-            </p>
-          </ScrollReveal>
+      {expertiseItems.length > 0 && (
+        <section className="bg-off-white py-22 lg:py-26">
+          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+            <ScrollReveal>
+              <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-8">
+                Expertise
+              </p>
+            </ScrollReveal>
 
-          <div className="flex flex-col gap-10">
-            {expertiseItems.map((item, i) => (
-              <ScrollReveal key={item.slug} delay={i < 3 ? i + 1 : 0}>
-                <Link href={item.href} className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 py-8 border-b border-light-border last:border-b-0">
-                  <div className="placeholder-image aspect-[16/10] rounded-sm" />
-                  <div className="flex flex-col justify-center">
-                    <h3 className="font-serif font-semibold text-h3 text-dark group-hover:text-navy transition-colors leading-snug mb-3">
-                      {item.name}
-                    </h3>
-                    <p className="font-sans text-body text-body-gray leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-                    <span className="font-sans text-body-sm font-semibold tracking-nav uppercase text-navy group-hover:opacity-70 transition-opacity">
-                      Learn more →
-                    </span>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+            <div className="flex flex-col gap-10">
+              {expertiseItems.map((item, i) => (
+                <ScrollReveal key={item.slug} delay={i < 3 ? i + 1 : 0}>
+                  <Link href={item.href} className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 py-8 border-b border-light-border last:border-b-0">
+                    <div className="placeholder-image aspect-[16/10] rounded-sm" />
+                    <div className="flex flex-col justify-center">
+                      <h3 className="font-serif font-semibold text-h3 text-dark group-hover:text-navy transition-colors leading-snug mb-3">
+                        {item.name}
+                      </h3>
+                      <p className="font-sans text-body text-body-gray leading-relaxed mb-4">
+                        {item.description}
+                      </p>
+                      <span className="font-sans text-body-sm font-semibold tracking-nav uppercase text-navy group-hover:opacity-70 transition-opacity">
+                        Learn more →
+                      </span>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <TestimonialsSection items={relatedTestimonials} />
       <NewsPreview limit={3} />

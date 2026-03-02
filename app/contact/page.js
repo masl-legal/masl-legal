@@ -5,10 +5,10 @@ import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata = {
   title: 'Contact',
-  description: 'Get in touch with Masl Legal. Our London-based team is ready to discuss your legal needs and provide tailored advice.',
+  description: 'Get in touch with Masl Legal. Our teams in Lahore and London are ready to discuss your legal needs and provide tailored advice.',
   openGraph: {
     title: 'Contact | Masl Legal',
-    description: 'Get in touch with Masl Legal. Our London-based team is ready to discuss your legal needs.',
+    description: 'Get in touch with Masl Legal. Our teams in Lahore and London are ready to discuss your legal needs.',
   },
 };
 
@@ -41,31 +41,58 @@ export default function ContactPage() {
       <section className="bg-off-white py-18 lg:py-22">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
           <ScrollReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
               <div>
                 <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
-                  Address
+                  Pakistan Office
                 </p>
                 <p className="font-sans text-body text-dark leading-relaxed">
                   Masl Legal<br />
-                  London, United Kingdom
+                  9th Floor, Tricon Corporate Centre<br />
+                  73 Jail Road, Gulberg<br />
+                  Lahore, 54000<br />
+                  Pakistan
                 </p>
               </div>
               <div>
                 <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
+                  UK Office
+                </p>
+                <p className="font-sans text-body text-dark leading-relaxed">
+                  Masl Legal<br />
+                  71-75 Shelton Street<br />
+                  Covent Garden<br />
+                  London WC2H 9JQ<br />
+                  United Kingdom
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              <div>
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
                   Email
                 </p>
-                <a href="mailto:info@masllegal.com" className="font-sans text-body text-navy hover:opacity-70 transition-opacity">
-                  info@masllegal.com
+                <a href="mailto:contact@masllegal.com" className="font-sans text-body text-navy hover:opacity-70 transition-opacity">
+                  contact@masllegal.com
                 </a>
               </div>
               <div>
                 <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
                   Telephone
                 </p>
-                <a href="tel:+442000000000" className="font-sans text-body text-navy hover:opacity-70 transition-opacity">
-                  +44 (0) 20 0000 0000
+                <a href="tel:+447304274816" className="font-sans text-body text-navy hover:opacity-70 transition-opacity">
+                  +44 7304 274816
                 </a>
+              </div>
+              <div>
+                <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-body-gray/60 mb-4">
+                  Office Hours
+                </p>
+                <p className="font-sans text-body text-dark leading-relaxed">
+                  Monday - Friday<br />
+                  9:00 AM - 5:00 PM
+                </p>
               </div>
             </div>
           </ScrollReveal>

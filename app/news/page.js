@@ -23,7 +23,13 @@ export default function NewsPage() {
             {newsArticles.map((article, i) => (
               <ScrollReveal key={article.slug} delay={i < 3 ? i + 1 : 0}>
                 <Link href={`/news/${article.slug}`} className="group block">
-                  <div className="placeholder-image aspect-[16/10] rounded-sm mb-5" />
+                  {article.image ? (
+                    <div className="relative aspect-[16/10] rounded-sm overflow-hidden mb-5">
+                      <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                    </div>
+                  ) : (
+                    <div className="placeholder-image aspect-[16/10] rounded-sm mb-5" />
+                  )}
                   <div className="flex items-center gap-3 mb-3">
                     <span className="font-sans text-[10px] font-semibold uppercase tracking-wide-label bg-navy text-white px-2.5 py-1 rounded-sm">
                       {article.tag}

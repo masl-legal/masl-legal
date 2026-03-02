@@ -98,7 +98,13 @@ export default function ArticlePage({ params }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {otherArticles.map((a) => (
                 <Link key={a.slug} href={`/news/${a.slug}`} className="group">
-                  <div className="placeholder-image aspect-[16/10] rounded-sm mb-4" />
+                  {a.image ? (
+                    <div className="relative aspect-[16/10] rounded-sm overflow-hidden mb-4">
+                      <img src={a.image} alt={a.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                    </div>
+                  ) : (
+                    <div className="placeholder-image aspect-[16/10] rounded-sm mb-4" />
+                  )}
                   <div className="flex items-center gap-3 mb-2">
                     <span className="font-sans text-[10px] font-semibold uppercase tracking-wide-label bg-navy text-white px-2.5 py-1 rounded-sm">
                       {a.tag}

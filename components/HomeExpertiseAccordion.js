@@ -36,7 +36,9 @@ export default function HomeExpertiseAccordion() {
                 className="w-full flex items-center justify-between py-6 group text-left"
                 aria-expanded={openIndex === i}
               >
-                <span className="font-serif text-accordion text-dark group-hover:text-navy transition-colors">
+                <span className={`font-serif text-accordion transition-colors ${
+                  openIndex === i ? 'text-navy' : 'text-dark group-hover:text-navy'
+                }`}>
                   {item.name}
                 </span>
                 <span className={`w-7 h-7 flex items-center justify-center text-body-gray transition-transform duration-300 ${openIndex === i ? 'rotate-45' : ''}`}>

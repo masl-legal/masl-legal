@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function HomeHero() {
   const [visible, setVisible] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 150);
@@ -14,14 +15,16 @@ export default function HomeHero() {
     <section className="relative h-screen min-h-[720px] overflow-hidden">
       {/* Video Background */}
       <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         muted
         autoPlay
         loop
         playsInline
-        poster=""
+        poster="/Video/hero-poster.jpg"
+        preload="metadata"
+        onLoadedData={() => setVideoLoaded(true)}
       >
-        {/* TODO: Replace src with actual hero video file */}
+        <source src="/Video/hero-video.mp4" type="video/mp4" />
       </video>
 
       {/* Gradient Fallback (visible when video hasn't loaded) */}

@@ -49,15 +49,27 @@ const jsonLd = {
       '@id': 'https://masllegal.com/#organization',
       name: 'Masl Legal',
       url: 'https://masllegal.com',
-      email: 'info@masllegal.com',
-      description: 'Independent London-based law firm delivering tailored legal advice across commercial, corporate, international trade, dispute resolution and regulatory matters.',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'London',
-        addressCountry: 'GB',
-      },
+      email: 'contact@masllegal.com',
+      telephone: '+447304274816',
+      description: 'Independent law firm with offices in Lahore and London delivering tailored legal advice across commercial, corporate, international trade, dispute resolution and regulatory matters.',
+      address: [
+        {
+          '@type': 'PostalAddress',
+          streetAddress: '9th Floor, Tricon Corporate Centre, 73 Jail Road, Gulberg',
+          addressLocality: 'Lahore',
+          postalCode: '54000',
+          addressCountry: 'PK',
+        },
+        {
+          '@type': 'PostalAddress',
+          streetAddress: '71-75 Shelton Street, Covent Garden',
+          addressLocality: 'London',
+          postalCode: 'WC2H 9JQ',
+          addressCountry: 'GB',
+        },
+      ],
       sameAs: [
-        'https://linkedin.com/company/masllegal',
+        'https://www.linkedin.com/company/masl-legal-consultancy/?viewAsMember=true',
         'https://x.com/masllegal',
       ],
     },
@@ -67,15 +79,26 @@ const jsonLd = {
       name: 'Masl Legal',
       url: 'https://masllegal.com',
       priceRange: '$$',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'London',
-        addressCountry: 'GB',
-      },
-      areaServed: {
-        '@type': 'Country',
-        name: 'United Kingdom',
-      },
+      address: [
+        {
+          '@type': 'PostalAddress',
+          streetAddress: '9th Floor, Tricon Corporate Centre, 73 Jail Road, Gulberg',
+          addressLocality: 'Lahore',
+          postalCode: '54000',
+          addressCountry: 'PK',
+        },
+        {
+          '@type': 'PostalAddress',
+          streetAddress: '71-75 Shelton Street, Covent Garden',
+          addressLocality: 'London',
+          postalCode: 'WC2H 9JQ',
+          addressCountry: 'GB',
+        },
+      ],
+      areaServed: [
+        { '@type': 'Country', name: 'United Kingdom' },
+        { '@type': 'Country', name: 'Pakistan' },
+      ],
     },
   ],
 };
