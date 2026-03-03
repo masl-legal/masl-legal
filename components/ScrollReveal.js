@@ -29,7 +29,8 @@ export default function ScrollReveal({ children, className = '', delay = 0 }) {
     return () => observer.disconnect();
   }, []);
 
-  const delayClass = delay === 1 ? 'reveal-delay-1' : delay === 2 ? 'reveal-delay-2' : delay === 3 ? 'reveal-delay-3' : '';
+  const delayMap = { 1: 'reveal-delay-1', 2: 'reveal-delay-2', 3: 'reveal-delay-3', 4: 'reveal-delay-4', 5: 'reveal-delay-5' };
+  const delayClass = delayMap[delay] || '';
 
   return (
     <div ref={ref} className={`reveal ${delayClass} ${className}`}>

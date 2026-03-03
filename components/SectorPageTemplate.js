@@ -4,6 +4,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import NewsPreview from '@/components/NewsPreview';
 import CTABanner from '@/components/CTABanner';
 import ScrollReveal from '@/components/ScrollReveal';
+import CountUp from '@/components/CountUp';
 import { getExpertiseBySector, getRelatedTestimonials } from '@/lib/data';
 
 export default function SectorPageTemplate({ sector }) {
@@ -76,12 +77,20 @@ export default function SectorPageTemplate({ sector }) {
             {sector.stats && (
               <ScrollReveal>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/10">
-                  {sector.stats.map((s, i) => (
-                    <div key={i} className="text-center sm:text-left">
-                      <p className="font-serif text-h2 text-white leading-none mb-2">{s.number}</p>
-                      <p className="font-sans text-body-sm text-white/60">{s.label}</p>
-                    </div>
-                  ))}
+                  {sector.stats.map((s, i) => {
+                    const match = s.number.match(/^([£$]?)([0-9.]+)(.*)$/);
+                    const prefix = match ? match[1] : '';
+                    const num = match ? match[2] : s.number;
+                    const suffix = match ? match[3] : '';
+                    return (
+                      <div key={i} className="text-center sm:text-left">
+                        <p className="font-serif text-h2 text-white leading-none mb-2">
+                          <CountUp target={num} prefix={prefix} suffix={suffix} />
+                        </p>
+                        <p className="font-sans text-body-sm text-white/60">{s.label}</p>
+                      </div>
+                    );
+                  })}
                 </div>
               </ScrollReveal>
             )}
@@ -102,19 +111,16 @@ export default function SectorPageTemplate({ sector }) {
             <div className="flex flex-col gap-10">
               {expertiseItems.map((item, i) => (
                 <ScrollReveal key={item.slug} delay={i < 3 ? i + 1 : 0}>
-                  <Link href={item.href} className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 py-8 border-b border-light-border last:border-b-0">
-                    <div className="placeholder-image aspect-[16/10] rounded-sm" />
-                    <div className="flex flex-col justify-center">
-                      <h3 className="font-serif font-semibold text-h3 text-dark group-hover:text-navy transition-colors leading-snug mb-3">
-                        {item.name}
-                      </h3>
-                      <p className="font-sans text-body text-body-gray leading-relaxed mb-4">
-                        {item.description}
-                      </p>
-                      <span className="font-sans text-body-sm font-semibold tracking-nav uppercase text-navy group-hover:opacity-70 transition-opacity">
-                        Learn more →
-                      </span>
-                    </div>
+                  <Link href={item.href} className="group block expertise-item py-8 border-b border-light-border last:border-b-0">
+                    <h3 className="font-serif font-semibold text-h3 text-dark group-hover:text-navy transition-colors leading-snug mb-3">
+                      {item.name}
+                    </h3>
+                    <p className="font-sans text-body text-body-gray leading-relaxed mb-4">
+                      {item.description}
+                    </p>
+                    <span className="font-sans text-body-sm font-semibold tracking-nav uppercase text-navy group-hover:opacity-70 transition-opacity">
+                      Learn more →
+                    </span>
                   </Link>
                 </ScrollReveal>
               ))}

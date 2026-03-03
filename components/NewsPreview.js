@@ -28,7 +28,12 @@ export default function NewsPreview({ articles = newsArticles, limit = 3, showHe
             <Link href={`/news/${featured.slug}`} className="group">
               {featured.image ? (
                 <div className="relative aspect-[16/10] rounded-sm overflow-hidden mb-5">
-                  <img src={featured.image} alt={featured.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <picture>
+                    {!featured.image.endsWith('.avif') && (
+                      <source srcSet={featured.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                    )}
+                    <img src={featured.image} alt={featured.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  </picture>
                 </div>
               ) : (
                 <div className="placeholder-image aspect-[16/10] rounded-sm mb-5" />
@@ -54,7 +59,12 @@ export default function NewsPreview({ articles = newsArticles, limit = 3, showHe
               <Link key={article.slug} href={`/news/${article.slug}`} className="group flex gap-5">
                 {article.image ? (
                   <div className="relative w-[170px] h-[115px] rounded-sm overflow-hidden shrink-0">
-                    <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                    <picture>
+                      {!article.image.endsWith('.avif') && (
+                        <source srcSet={article.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                      )}
+                      <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                    </picture>
                   </div>
                 ) : (
                   <div className="placeholder-image w-[170px] h-[115px] rounded-sm shrink-0" />

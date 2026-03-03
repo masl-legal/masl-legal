@@ -2,6 +2,7 @@ import HeroBanner from '@/components/HeroBanner';
 import ContactForm from '@/components/ContactForm';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ScrollReveal from '@/components/ScrollReveal';
+import MapEmbed from '@/components/MapEmbed';
 
 export const metadata = {
   title: 'Contact',
@@ -98,20 +99,10 @@ export default function ContactPage() {
           </ScrollReveal>
 
           {/* London Office Map */}
-          <ScrollReveal>
-            <div className="rounded-sm overflow-hidden mt-12 aspect-[21/7]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8876737!2d-0.1249!3d51.5154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ccab1e4f33%3A0x37e0514c3f1d47d3!2s71-75%20Shelton%20St%2C%20London%20WC2H%209JQ%2C%20UK!5e0!3m2!1sen!2s!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="MASL Legal London Office Location"
-              />
-            </div>
-          </ScrollReveal>
+          <MapEmbed
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8876737!2d-0.1249!3d51.5154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ccab1e4f33%3A0x37e0514c3f1d47d3!2s71-75%20Shelton%20St%2C%20London%20WC2H%209JQ%2C%20UK!5e0!3m2!1sen!2s!4v1"
+            title="MASL Legal London Office Location"
+          />
         </div>
       </section>
 

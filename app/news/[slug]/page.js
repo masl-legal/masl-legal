@@ -102,7 +102,12 @@ export default async function ArticlePage({ params }) {
                 <Link key={a.slug} href={`/news/${a.slug}`} className="group">
                   {a.image ? (
                     <div className="relative aspect-[16/10] rounded-sm overflow-hidden mb-4">
-                      <img src={a.image} alt={a.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                      <picture>
+                        {!a.image.endsWith('.avif') && (
+                          <source srcSet={a.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                        )}
+                        <img src={a.image} alt={a.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                      </picture>
                     </div>
                   ) : (
                     <div className="placeholder-image aspect-[16/10] rounded-sm mb-4" />
