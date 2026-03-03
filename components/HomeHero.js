@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 
 export default function HomeHero() {
   const [visible, setVisible] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 150);
@@ -13,28 +12,27 @@ export default function HomeHero() {
 
   return (
     <section className="relative h-screen min-h-[720px] overflow-hidden">
+      {/* Gradient Fallback (behind video) */}
+      <div className="absolute inset-0 hero-gradient z-0" />
+
       {/* Video Background */}
       <video
-        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className="absolute inset-0 w-full h-full object-cover z-[1]"
         muted
         autoPlay
         loop
         playsInline
         poster="/Video/hero-poster.jpg"
-        preload="metadata"
-        onLoadedData={() => setVideoLoaded(true)}
+        preload="auto"
       >
         <source src="/Video/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient Fallback (visible when video hasn't loaded) */}
-      <div className="absolute inset-0 hero-gradient z-0" />
-
       {/* Wave texture */}
-      <div className="absolute inset-0 wave-texture z-[1]" />
+      <div className="absolute inset-0 wave-texture z-[2]" />
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40 z-[2]" />
+      <div className="absolute inset-0 bg-black/40 z-[3]" />
 
       {/* Corner brackets */}
       <div className="absolute top-10 right-10 w-10 h-10 border-t-[1.5px] border-r-[1.5px] border-white/25 z-[3]" />

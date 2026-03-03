@@ -70,9 +70,6 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <ScrollReveal>
-            <div className="placeholder-image aspect-[21/8] rounded-sm mt-14" />
-          </ScrollReveal>
         </div>
       </section>
 

@@ -10,12 +10,15 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16 pt-20 pb-9">
         {/* Logo */}
         <div className="mb-14">
-          <Link href="/" className="flex items-center" aria-label="Masl Legal — Home">
+          <Link href="/" className="flex items-center gap-2.5" aria-label="Masl Legal — Home">
             <img
               src="/Logo/masl-legal-logo.png"
               alt="MASL Legal"
-              className="h-8 w-auto brightness-0 invert"
+              className="h-9 w-auto rounded-sm"
             />
+            <span className="font-serif text-lg font-semibold tracking-wide text-white">
+              MASL LEGAL
+            </span>
           </Link>
         </div>
 
@@ -27,7 +30,7 @@ export default function Footer() {
               Sectors
             </p>
             <div className="flex flex-col gap-2.5">
-              {sectors.map((s) => (
+              {sectors.filter(s => s.slug !== 'regulatory-advisory').map((s) => (
                 <Link
                   key={s.slug}
                   href={s.href}

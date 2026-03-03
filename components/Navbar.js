@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { sectors, expertiseAreas } from '@/lib/data';
 
-const expertiseBySector = sectors.map((sector) => ({
+const navSectors = sectors.filter((s) => s.slug !== 'regulatory-advisory');
+
+const expertiseBySector = navSectors.map((sector) => ({
   ...sector,
   items: expertiseAreas.filter((e) => e.sector === sector.slug),
 }));
@@ -86,12 +88,15 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between h-16 px-8 lg:px-16 max-w-[1440px] mx-auto">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0" aria-label="Masl Legal — Home">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Masl Legal — Home">
             <img
               src="/Logo/masl-legal-logo.png"
               alt="MASL Legal"
-              className={`h-8 w-auto transition-all ${(isLight || forceLightNav) ? '' : 'brightness-0 invert'}`}
+              className="h-9 w-auto rounded-sm"
             />
+            <span className={`font-serif text-lg font-semibold tracking-wide transition-colors ${(isLight || forceLightNav) ? 'text-dark' : 'text-white'}`}>
+              MASL LEGAL
+            </span>
           </Link>
 
           {/* Desktop Center Links */}
@@ -205,11 +210,11 @@ export default function Navbar() {
                 </svg>
               </button>
               <div className="flex flex-col gap-4">
-                {sectors.map((sector) => (
+                {navSectors.map((sector) => (
                   <Link
                     key={sector.slug}
                     href={sector.href}
-                    className="font-serif text-h4 text-white hover:opacity-70 transition-opacity"
+                    className="font-serif text-h4-lg text-white hover:opacity-70 transition-opacity"
                     role="menuitem"
                   >
                     {sector.name}
@@ -233,10 +238,10 @@ export default function Navbar() {
                   <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <div className="grid grid-cols-4 gap-10">
+              <div className="grid grid-cols-3 gap-10">
                 {expertiseBySector.map((group) => (
                   <div key={group.slug}>
-                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-4">
+                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white mb-4">
                       {group.name}
                     </p>
                     <div className="flex flex-col gap-2.5">
@@ -244,7 +249,7 @@ export default function Navbar() {
                         <Link
                           key={item.slug}
                           href={item.href}
-                          className="font-serif text-lg text-white/85 hover:text-white transition-colors"
+                          className="font-serif text-lg text-white hover:opacity-70 transition-opacity"
                           role="menuitem"
                         >
                           {item.name}
@@ -289,8 +294,8 @@ export default function Navbar() {
             </button>
             {mobileAccordion === 'sectors' && (
               <div className="pl-4 pb-2 flex flex-col gap-2">
-                {sectors.map((s) => (
-                  <Link key={s.slug} href={s.href} className="font-serif text-lg text-white/80 hover:text-white py-1">
+                {navSectors.map((s) => (
+                  <Link key={s.slug} href={s.href} className="font-serif text-lg text-white hover:opacity-70 py-1">
                     {s.name}
                   </Link>
                 ))}
@@ -315,11 +320,11 @@ export default function Navbar() {
               <div className="pl-4 pb-2 flex flex-col gap-2">
                 {expertiseBySector.map((group) => (
                   <div key={group.slug} className="mb-3">
-                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white/60 mb-2">
+                    <p className="font-sans text-label-xs font-semibold uppercase tracking-label text-white mb-2">
                       {group.name}
                     </p>
                     {group.items.map((item) => (
-                      <Link key={item.slug} href={item.href} className="block font-serif text-base text-white/75 hover:text-white py-1">
+                      <Link key={item.slug} href={item.href} className="block font-serif text-base text-white hover:opacity-70 py-1">
                         {item.name}
                       </Link>
                     ))}

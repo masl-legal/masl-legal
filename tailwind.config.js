@@ -25,6 +25,7 @@ module.exports = {
         'h2': 'clamp(32px, 3.8vw, 46px)',
         'h3': 'clamp(26px, 2.8vw, 34px)',
         'h4': 'clamp(22px, 2.2vw, 28px)',
+        'h4-lg': 'clamp(28px, 2.8vw, 36px)',
         'body-lg': 'clamp(19px, 1.45vw, 22.5px)',
         'body': 'clamp(18px, 1.35vw, 21px)',
         'body-sm': 'clamp(16.5px, 1.10vw, 18px)',
